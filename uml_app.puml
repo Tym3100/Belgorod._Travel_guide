@@ -1,0 +1,220 @@
+@startuml
+class com.aitymkiv.belgorod_travelfuide.CashbackAdapter {
+- List<CashBack> mCashBacks
++ CashbackAdapter.CashbackViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(CashbackAdapter.CashbackViewHolder,int)
++ int getItemCount()
+}
+class com.aitymkiv.belgorod_travelfuide.CashbackAdapter.CashbackViewHolder {
+~ ImageView imageViewCompany
+~ TextView textViewReceivingConditionCashBack
+}
+class com.aitymkiv.belgorod_travelfuide.FeedFragment {
+- ArrayList<NewsItem> newsItems
+- View thisFragment
+- {static} String ARG_PARAM1
+- {static} String ARG_PARAM2
+- String mParam1
+- String mParam2
++ {static} FeedFragment newInstance(String,String)
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void setInitialNews()
+}
+class com.aitymkiv.belgorod_travelfuide.CashBack {
+- String name
+- int imageRes
+- int daysToCashBack
+- int cashBack
++ int getImageRes()
++ void setImageRes(int)
++ int getDaysToCashBack()
++ void setDaysToCashBack(int)
++ int getCashBack()
++ void setCashBack(int)
+}
+class com.aitymkiv.belgorod_travelfuide.ProfileFragment {
+- View thisFragment
+- View.OnClickListener onVkClickListener
+- View.OnClickListener onTelegramClickListener
+- {static} String ARG_PARAM1
+- {static} String ARG_PARAM2
+- String mParam1
+- String mParam2
++ {static} ProfileFragment newInstance(String,String)
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.aitymkiv.belgorod_travelfuide.MarketStaggeredRecyclerViewAdapter {
+- List<Product> mProductList
+- Context mContext
++ ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(MarketStaggeredRecyclerViewAdapter.ViewHolder,int)
++ int getItemCount()
+}
+class com.aitymkiv.belgorod_travelfuide.MarketStaggeredRecyclerViewAdapter.ViewHolder {
+~ ImageView imageView
+~ TextView textViewProductName
+}
+class com.aitymkiv.belgorod_travelfuide.MarketFragment {
+- ArrayList<Product> mProductList
+- View thisFragment
+- {static} int NUM_COLUMNS
+- {static} String ARG_PARAM1
+- {static} String ARG_PARAM2
+- String mParam1
+- String mParam2
++ {static} MarketFragment newInstance(String,String)
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void setProducts()
+}
+class com.aitymkiv.belgorod_travelfuide.MainActivity {
+- ViewPager mViewPager
+- BottomNavigationView mBottomNavigationView
+- BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener
+- ViewPager.OnPageChangeListener onPageChangeListener
+# void onCreate(Bundle)
+}
+class com.aitymkiv.belgorod_travelfuide.NewsAdapter {
+- List<NewsItem> news
++ myViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(NewsAdapter.myViewHolder,int)
++ int getItemCount()
+}
+class com.aitymkiv.belgorod_travelfuide.NewsAdapter.myViewHolder {
+~ ImageView newsImageView
+~ TextView headingNewsTextView
+}
+class com.aitymkiv.belgorod_travelfuide.NewsItem {
+- String mHeading
+- String mNewsText
+- String mDate
+- int mImageRes
+- Uri mURINews
++ String getHeading()
++ void setHeading(String)
++ String getNewsText()
++ void setNewsText(String)
++ String getDate()
++ void setDate(String)
++ int getImageRes()
++ void setImageRes(int)
++ void setURINews(Uri)
++ Uri getURINews()
+}
+class com.aitymkiv.belgorod_travelfuide.Product {
+- String name
+- float price
+- int imageRes
+- Uri uri
++ String getName()
++ void setName(String)
++ float getPrice()
++ void setPrice(float)
++ int getImageRes()
++ void setImageRes(int)
++ Uri getUri()
++ void setUri(Uri)
+}
+class com.aitymkiv.belgorod_travelfuide.CategoriesAdapter {
+- List<Category> mCategories
++ CategoriesViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(CategoriesViewHolder,int)
++ int getItemCount()
+}
+class com.aitymkiv.belgorod_travelfuide.CategoriesAdapter.CategoriesViewHolder {
+~ ImageView imageViewCategory
+~ TextView textViewCategoryName
+}
+class com.aitymkiv.belgorod_travelfuide.CashbacksActivity {
++ {static} String KEY_CASHBACK_LIST
++ {static} String KEY_BUNDLE
+- RecyclerView recyclerView
+- List<CashBack> cashBacksList
+# void onCreate(Bundle)
+}
+class com.aitymkiv.belgorod_travelfuide.MyViewPagerAdapter {
++ Fragment getItem(int)
++ int getCount()
+}
+class com.aitymkiv.belgorod_travelfuide.SliderItem {
+- String description
+- int imageRes
++ String getDescription()
++ void setDescription(String)
++ int getImageRes()
++ void setImageRes(int)
+}
+class com.aitymkiv.belgorod_travelfuide.SliderAdapterNews {
+- Context context
+- List<SliderItem> mSliderItems
++ void renewItems(List<SliderItem>)
++ void deleteItem(int)
++ void addItem(SliderItem)
++ SliderAdapterVH onCreateViewHolder(ViewGroup)
++ void onBindViewHolder(SliderAdapterVH,int)
++ int getCount()
+}
+class com.aitymkiv.belgorod_travelfuide.SliderAdapterNews.SliderAdapterVH {
+~ View itemView
+~ ImageView imageViewBackground
+~ ImageView imageGifContainer
+~ TextView textViewDescription
+}
+class com.aitymkiv.belgorod_travelfuide.Category {
+- List<CashBack> cashBackList
+- int imageResCategory
+- String categoryName
+- int cashbackValue
++ List<CashBack> getCashBackList()
++ void setCashBackList(List<CashBack>)
++ void addCashBack(CashBack)
++ void addCashBack(List<CashBack>)
++ int getImageResCategory()
++ void setImageResCategory(int)
++ String getCategoryName()
++ void setCategoryName(String)
++ int getCashbackValue()
++ void setCashbackValue(short)
+}
+class com.aitymkiv.belgorod_travelfuide.MenuFragment {
+- ArrayList<Category> categoryCashbacks
+- View thisFragment
+- SliderAdapterNews adapter
+- {static} String ARG_PARAM1
+- {static} String ARG_PARAM2
+- String mParam1
+- String mParam2
++ {static} MenuFragment newInstance(String,String)
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void addNewItemsToSlider()
+- void addCategoriesToRecyclerView()
+}
+
+
+com.aitymkiv.belgorod_travelfuide.Adapter <|-- com.aitymkiv.belgorod_travelfuide.CashbackAdapter
+com.aitymkiv.belgorod_travelfuide.CashbackAdapter +.. com.aitymkiv.belgorod_travelfuide.CashbackAdapter.CashbackViewHolder
+com.aitymkiv.belgorod_travelfuide.ViewHolder <|-- com.aitymkiv.belgorod_travelfuide.CashbackAdapter.CashbackViewHolder
+androidx.fragment.app.Fragment <|-- com.aitymkiv.belgorod_travelfuide.FeedFragment
+java.io.Serializable <|.. com.aitymkiv.belgorod_travelfuide.CashBack
+androidx.fragment.app.Fragment <|-- com.aitymkiv.belgorod_travelfuide.ProfileFragment
+com.aitymkiv.belgorod_travelfuide.Adapter <|-- com.aitymkiv.belgorod_travelfuide.MarketStaggeredRecyclerViewAdapter
+com.aitymkiv.belgorod_travelfuide.MarketStaggeredRecyclerViewAdapter +.. com.aitymkiv.belgorod_travelfuide.MarketStaggeredRecyclerViewAdapter.ViewHolder
+com.aitymkiv.belgorod_travelfuide.ViewHolder <|-- com.aitymkiv.belgorod_travelfuide.MarketStaggeredRecyclerViewAdapter.ViewHolder
+androidx.fragment.app.Fragment <|-- com.aitymkiv.belgorod_travelfuide.MarketFragment
+androidx.appcompat.app.AppCompatActivity <|-- com.aitymkiv.belgorod_travelfuide.MainActivity
+com.aitymkiv.belgorod_travelfuide.Adapter <|-- com.aitymkiv.belgorod_travelfuide.NewsAdapter
+com.aitymkiv.belgorod_travelfuide.NewsAdapter +.. com.aitymkiv.belgorod_travelfuide.NewsAdapter.myViewHolder
+com.aitymkiv.belgorod_travelfuide.ViewHolder <|-- com.aitymkiv.belgorod_travelfuide.NewsAdapter.myViewHolder
+com.aitymkiv.belgorod_travelfuide.Adapter <|-- com.aitymkiv.belgorod_travelfuide.CategoriesAdapter
+com.aitymkiv.belgorod_travelfuide.CategoriesAdapter +.. com.aitymkiv.belgorod_travelfuide.CategoriesAdapter.CategoriesViewHolder
+com.aitymkiv.belgorod_travelfuide.ViewHolder <|-- com.aitymkiv.belgorod_travelfuide.CategoriesAdapter.CategoriesViewHolder
+androidx.appcompat.app.AppCompatActivity <|-- com.aitymkiv.belgorod_travelfuide.CashbacksActivity
+androidx.fragment.app.FragmentStatePagerAdapter <|-- com.aitymkiv.belgorod_travelfuide.MyViewPagerAdapter
+com.smarteist.autoimageslider.SliderViewAdapter <|-- com.aitymkiv.belgorod_travelfuide.SliderAdapterNews
+com.aitymkiv.belgorod_travelfuide.SliderAdapterNews +.. com.aitymkiv.belgorod_travelfuide.SliderAdapterNews.SliderAdapterVH
+com.aitymkiv.belgorod_travelfuide.ViewHolder <|-- com.aitymkiv.belgorod_travelfuide.SliderAdapterNews.SliderAdapterVH
+androidx.fragment.app.Fragment <|-- com.aitymkiv.belgorod_travelfuide.MenuFragment
+@enduml
